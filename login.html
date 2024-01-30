@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Login Page</title>
+  <style>
+    body {
+      /* background-image: url("wallpaperflare.com_wallpaper\ \(26\).jpg"); */
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #535353;
+    }
+
+    .container {
+      width: 500px;
+      background-color: #00000073;
+      padding: 100px;
+      border-radius: 20px;
+      /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.304);
+      position: relative;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 50px;
+      color: azure;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px 20px;
+
+      align-items: center;
+      border: 4px solid #f4f2f2;
+      border-radius: 10px;
+      box-sizing: border-box;
+    }
+
+    .error-message {
+      color: red;
+      margin-top: 5px;
+    }
+
+    .button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-left: 200px;
+    }
+
+    #myVideo {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      max-width: 100%;
+      min-height: 100%;
+    }
+  </style>
+
+</head>
+
+<body>
+  <video autoplay muted loop id="myVideo">
+    <source src="animation.mp4" type="video/mp4">
+  </video>
+  <div class="container">
+    <h1>Login</h1>
+    <form action="insert.php" method="post" id="loginForm" onsubmit="validateForm(event) || myfunc(event)">
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" placeholder="Enter Email" required>
+      <span id="emailError" class="error-message"></span>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="password" required>
+      <span id="passwordError" class="error-message"></span>
+      <br><br>
+      <input type="submit" value="Login" class="button">
+      <br><br>
+      <label for="">Don't have a account? Create one!</label><br>
+
+    </form onsubmit="open()">
+    <form action="">
+      <input type="submit" onclick="location.href='signup.html';" value="Sign Up" class="button">
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+  <script> function open() {
+      window.open('./signup.html');
+
+    }
+  </script>
+  <script type="text/javascript">
+    function myfunc(event) {
+      event.preventDefault();
+      var email = document.getElementById('email').value.trim()
+      var password = document.getElementById('password').value.trim();
+      localStorage.setItem('EMAIL ID', email);
+      localStorage.setItem('PASSWORD', password);
+    }
+
+  </script>
+</body>
+
+</html>
